@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db.js');
 const authRoutes = require('./routes/auth.js');
+const boardRoutes = require('./routes/board.js');
 const authMiddleware = require('./middleware/authMiddleware.js');
 
 connectDB();
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/boards', boardRoutes);
 
 // Example of a protected route
 // app.get('/api/protected', authMiddleware, (req, res) => {
